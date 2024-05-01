@@ -12,7 +12,7 @@ const OTPSchema = new mongoose.Schema({
 		required: true,
 	},
 	createdAt: {
-		type: Date,
+		type: Date,  
 		default: Date.now,
 		expires: 60 * 5, // The document will be automatically deleted after 5 minutes of its creation time
 	},
@@ -40,7 +40,7 @@ async function sendVerificationEmail(email, otp) {
 	}
 }
 
-// Define a post-save hook to send email after the document has been saved
+// Define a pre-save hook to send email before the document is saved, means, before the generated otp is saved n db, first it is sent to user mail
 OTPSchema.pre("save", async function (next) {
 	console.log("New document saved to database");
 

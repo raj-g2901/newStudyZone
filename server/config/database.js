@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-//hello
-// hello 2
+
 exports.connect = () => {
     mongoose.connect(process.env.MONGODB_URL, {
         useNewUrlParser: true,

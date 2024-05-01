@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 require('dotenv').config()
 
-
+//> This fn takes email, title, body  & sends a mail to them
 const mailSender = async (email, title, body) => {
     try{
             let transporter = nodemailer.createTransport({
@@ -20,7 +20,7 @@ const mailSender = async (email, title, body) => {
                 subject: `${title}`,
                 html: `${body}`,
             })
-            console.log(info);
+            //console.log(info);
             return info;
     }
     catch(error) {
